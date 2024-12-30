@@ -2,18 +2,11 @@
 
 namespace SAK25.Helpers
 {
-    public class FileSearchOptions
-    {
-        public string? Extension { get; set; }
-        
-        public string[]? IgnoreDirectories{ get; set; }
-    }
 
     public static class FileHelpers
     {
         public static List<string> GetAllFilesRecursive(string path, FileSearchOptions? options = null)
         {
-            Console.WriteLine($"Reading {path} ...");
             var filesAndDirs = Directory.GetFileSystemEntries(path);
 
             List<string> result = new();

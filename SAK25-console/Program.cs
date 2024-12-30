@@ -9,10 +9,12 @@ namespace SAK25_console
             var options = new FileSearchOptions
             {
                 Extension = "cs",
-                IgnoreDirectories = ["node_modules", "Library", "Package", ".git", ".vs", ".vscode", "bin", "obj", "src"]
+                IgnoreDirectories = ["node_modules", "Library", "Package", ".next", ".git", ".vs", ".vscode", "bin", "obj", "src"]
             };
 
-            var files = FileHelpers.GetAllFilesRecursive("C:/TMP_D/code", options);
+            Console.Write("Search Path > ");
+            var path = Console.ReadLine();
+            var files = FileHelpers.GetAllFilesRecursive(path, options);
 
             string extensions = "";
 

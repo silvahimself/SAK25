@@ -16,39 +16,6 @@ public static class CollectionExtensions
     }
 
     /// <summary>
-    /// Correctly joins an array of characters into a string
-    /// </summary>
-    /// <param name="chars"></param>
-    /// <returns>['s', 't', 'r', 'i', 'n', 'g'] => "string"</returns>
-    public static string ToStringProper(this IEnumerable<char> chars)
-    {
-        string res = "";
-
-        foreach (char c in chars)
-        {
-            res += c;
-        }
-
-        return res;
-    }
-
-    /// <summary>
-    /// Correctly joins an array of characters into a string
-    /// </summary>
-    /// <param name="chars"></param>
-    /// <returns>['s', 't', 'r', 'i', 'n', 'g'] => "string"</returns>
-    public static string ToStringJoined(this int[] nrs)
-    {
-        string res = "";
-
-        for (int i = 0; i<nrs.Length; i++)
-        {
-            res += nrs[i] + (i < nrs.Length - 1 ? "," : "");
-        }
-        
-        return res;
-    }
-    /// <summary>
     /// Receives an array of integers and counts the occurrences of each, returning it in a 
     /// Dictionary format.
     /// </summary>
@@ -70,5 +37,4 @@ public static class CollectionExtensions
 
         return result;
     }
-
 }
