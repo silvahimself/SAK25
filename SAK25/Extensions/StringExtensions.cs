@@ -25,6 +25,9 @@
             return true;
         }
 
+        public static string Minified(this string s)
+            => s.Replace("\n", "").Replace("\t", "").Replace(" ", "").Replace("\r", "");
+
         public static string Fill(this string s, int size, string chars)
         {
             while (s.Length < size)
