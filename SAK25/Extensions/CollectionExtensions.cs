@@ -3,6 +3,31 @@
 public static class CollectionExtensions
 {
 
+    public static char[] Fill(this char[] arr, char c = '0')
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            arr[i] = c;
+        }
+
+        return arr;
+    }
+
+    public static char[][] Fill (this char[][] array, int size, char c = '0')
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == null)
+            {
+                array[i] = new char[size];
+            }
+
+            array[i] = array[i].Fill(c);
+        }
+
+        return array;
+    }
+
     public static int[] ParseArray(this IEnumerable<string> data)
     {
         int[] res = new int[data.Count()];
