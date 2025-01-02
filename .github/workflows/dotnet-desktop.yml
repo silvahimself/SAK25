@@ -12,7 +12,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 3.1.200
+          dotnet-version: 8.0.0
 
       # Publish
       - name: publish on version change
@@ -23,6 +23,7 @@ jobs:
           PROJECT_FILE_PATH: SAK25/SAK25.csproj
           # Configuration to build and package
           BUILD_CONFIGURATION: Release
+          PACKAGE
           # Regex pattern to extract version info in a capturing group
           VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
           # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
