@@ -2,6 +2,11 @@
 
 public static class CollectionExtensions
 {
+    public static T RandomElement<T>(this IEnumerable<T> t)
+        => t != null && t is T[] ? (t as T[]).RandomElement() : t.ElementAt(Random.Shared.Next(t.Count()));
+    
+    public static T RandomElement<T>(this T[] t)
+        => t[Random.Shared.Next(t.Length)];
 
     public static char[] Fill(this char[] arr, char c = '0')
     {
