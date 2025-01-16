@@ -1,13 +1,39 @@
 ﻿namespace SAK25.Extensions;
 
+/// <summary>
+/// Extension methods for collections.
+/// Always specifies the complexity of the method.
+/// </summary>
 public static class CollectionExtensions
 {
+    /// <summary>
+    /// [O(n)] Retrieves a random element in an enumerable.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="t"></param>
+    /// <returns></returns>
     public static T RandomElement<T>(this IEnumerable<T> t)
-        => t.ElementAt(Random.Shared.Next(t.Count()));
-    
+    {
+        var arr = t.ToArray();
+        return arr[Random.Shared.Next(arr.Length)];
+    }
+
+    /// <summary>
+    /// [O(1)] Retrieves a random element in an array.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="t"></param>
+    /// <returns></returns>
     public static T RandomElement<T>(this T[] t)
         => t[Random.Shared.Next(t.Length)];
 
+    /// <summary>
+    /// [O(n)] Fills a character array with a character.
+    /// Default is '0'.
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <param name="c"></param>
+    /// <returns></returns>
     public static char[] Fill(this char[] arr, char c = '0')
     {
         for (int i = 0; i < arr.Length; i++)
@@ -18,13 +44,22 @@ public static class CollectionExtensions
         return arr;
     }
 
-    public static char[][] Fill (this char[][] array, int size, char c = '0')
+    /// <summary>
+    /// [O(xSize*ySize)] Fills a two-dimensional character array with a character.
+    /// Default is '0'.
+    /// </summary>
+    /// <param name="array">A two-dimensional character array of size [xSize][ySize]</param>
+    /// <param name="xSize"></param>
+    /// <param name="ySize"></param>
+    /// <param name="c"></param>
+    /// <returns></returns>
+    public static char[][] Fill (this char[][] array, int xSize, int ySize, char c = '0')
     {
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < xSize; i++)
         {
             if (array[i] == null)
             {
-                array[i] = new char[size];
+                array[i] = new char[ySize];
             }
 
             array[i] = array[i].Fill(c);
@@ -33,6 +68,12 @@ public static class CollectionExtensions
         return array;
     }
 
+    /// <summary>
+    /// Transforms a string IEnumerable into an integer array.
+    /// Does not affect the original collection.
+    /// </summary>
+    /// <param name="data"></param>
+    /// <returns></returns>
     public static int[] ParseArray(this IEnumerable<string> data)
     {
         int[] res = new int[data.Count()];

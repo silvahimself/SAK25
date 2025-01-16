@@ -5,6 +5,12 @@ namespace SAK25.Helpers
 
     public static class FileHelpers
     {
+        /// <summary>
+        /// Retrieves all files and directories in a given path, recursively.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public static List<string> GetAllFilesRecursive(string path, FileSearchOptions? options = null)
         {
             var filesAndDirs = Directory.GetFileSystemEntries(path);

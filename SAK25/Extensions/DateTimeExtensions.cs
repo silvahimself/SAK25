@@ -3,6 +3,7 @@
 public static class DateTimeExtensions
 {
     private static DateTime yearZero = new DateTime(1, 1, 1);
+
     /// <summary>
     /// Calculates and returns the years elapsed since a certain date.
     /// </summary>
